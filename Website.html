@@ -207,7 +207,7 @@
         <section id="contact" class="py-20" data-aos="fade-up">
             <h2 class="text-4xl font-bold text-center mb-12">Get In <span class="animated-text-gradient">Touch</span></h2>
             <div class="max-w-3xl mx-auto bg-gray-900/50 rounded-xl p-8 shadow-lg border border-gray-800" data-aos="zoom-in">
-                <form id="contact-form">
+                <form id="contact-form" action="YOUR_FORMSPREE_ENDPOINT_URL" method="POST">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <input type="text" id="name" name="name" placeholder="Your Name" class="w-full bg-gray-800 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-500" required>
                         <input type="email" id="email" name="email" placeholder="Your Email" class="w-full bg-gray-800 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-amber-500" required>
@@ -256,44 +256,44 @@
         });
 
         // Contact Form Submission
-        const contactForm = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const statusMessage = document.getElementById('status-message');
+        //const contactForm = document.getElementById('contact-form');
+        //const submitButton = document.getElementById('submit-button');
+        //const statusMessage = document.getElementById('status-message');
 
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        //contactForm.addEventListener('submit', async (e) => {
+            //e.preventDefault();
             
-            submitButton.disabled = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            statusMessage.textContent = '';
-            statusMessage.className = 'text-center mt-6';
+            //submitButton.disabled = true;
+            //submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            //statusMessage.textContent = '';
+            //statusMessage.className = 'text-center mt-6';
 
-            const formData = new FormData(contactForm);
+            //const formData = new FormData(contactForm);
 
-            try {
+            //try {
                 // IMPORTANT: Replace with your actual backend URL when deployed
-                const response = await fetch('http://12.0.0.1:5000/send_email', {
-                    method: 'POST',
-                    body: formData,
-                });
+                //const response = await fetch('http://12.0.0.1:5000/send_email', {
+                    //method: 'POST',
+                    //body: formData,
+                //});
 
-                const result = await response.json();
+                //const result = await response.json();
 
-                if (response.ok) {
-                    statusMessage.textContent = 'Message sent successfully!';
-                    statusMessage.classList.add('text-green-400');
-                    contactForm.reset();
-                } else {
-                    throw new Error(result.error || 'An unknown error occurred.');
-                }
-            } catch (error) {
-                statusMessage.textContent = `Error: ${error.message}`;
-                statusMessage.classList.add('text-red-400');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.innerHTML = 'Send Message';
-            }
-        });
+                //if (response.ok) {
+                    //statusMessage.textContent = 'Message sent successfully!';
+                    //statusMessage.classList.add('text-green-400');
+                    //contactForm.reset();
+                //} else {
+                  //  throw new Error(result.error || 'An unknown error occurred.');
+                //}
+            //} catch (error) {
+              //  statusMessage.textContent = `Error: ${error.message}`;
+                //statusMessage.classList.add('text-red-400');
+            //} finally {
+              //  submitButton.disabled = false;
+                //submitButton.innerHTML = 'Send Message';
+            //}
+        //});
     </script>
 
 </body>
